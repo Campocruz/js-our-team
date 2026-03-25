@@ -1,40 +1,40 @@
 const teamMembers = [
-  {
-    name: "Marco Bianchi",
-    role: "Designer",
-    email: "marcobianchi@team.com",
-    img: "img/male1.png"
-  },
-  {
-    name: "Laura Rossi",
-    role: "Front-end Developer",
-    email: "laurarossi@team.com",
-    img: "img/female1.png"
-  },
-  {
-    name: "Giorgio Verdi",
-    role: "Back-end Developer",
-    email: "giorgioverdi@team.com",
-    img: "img/male2.png"
-  },
-  {
-    name: "Marta Ipsum",
-    role: "SEO Specialist",
-    email: "martarossi@team.com",
-    img: "img/female2.png"
-  },
-  {
-    name: "Roberto Lorem",
-    role: "SEO Specialist",
-    email: "robertolorem@team.com",
-    img: "img/male3.png"
-  },
-  {
-    name: "Daniela Amet",
-    role: "Analyst",
-    email: "danielaamet@team.com",
-    img: "img/female3.png"
-  }
+	{
+		name: "Marco Bianchi",
+		role: "Designer",
+		email: "marcobianchi@team.com",
+		img: "img/male1.png"
+	},
+	{
+		name: "Laura Rossi",
+		role: "Front-end Developer",
+		email: "laurarossi@team.com",
+		img: "img/female1.png"
+	},
+	{
+		name: "Giorgio Verdi",
+		role: "Back-end Developer",
+		email: "giorgioverdi@team.com",
+		img: "img/male2.png"
+	},
+	{
+		name: "Marta Ipsum",
+		role: "SEO Specialist",
+		email: "martarossi@team.com",
+		img: "img/female2.png"
+	},
+	{
+		name: "Roberto Lorem",
+		role: "SEO Specialist",
+		email: "robertolorem@team.com",
+		img: "img/male3.png"
+	},
+	{
+		name: "Daniela Amet",
+		role: "Analyst",
+		email: "danielaamet@team.com",
+		img: "img/female3.png"
+	}
 ];
 
 // selcet DOM node
@@ -55,32 +55,32 @@ renderCard(teamMembers);
 
 // wait the event submit
 formEl.addEventListener('submit', (e) => {
-  e.preventDefault();
-  // read and add new member in array list
-  const newMember = {
-    name: inmputName.value,
-    role: inmputRole.value,
-    email: inmputEmail.value,
-    img: inmputImg.value
-  };
-  teamMembers.unshift(newMember);
-  renderCard(teamMembers);
+	e.preventDefault();
+	// read and add new member in array list
+	const newMember = {
+		name: inmputName.value,
+		role: inmputRole.value,
+		email: inmputEmail.value,
+		img: inmputImg.value
+	};
+	teamMembers.unshift(newMember);
+	renderCard(teamMembers);
 })
 
 function renderCard(listMembers) {
-  let markupCard = '';
-  for (let i = 0; i < listMembers.length; i++) {
-    markupCard += markupGenerator(listMembers[i]);
-    console.log(markupCard);
-  }
-  memberCard.innerHTML = markupCard
-  containerCardEl.appendChild(memberCard)
+	let markupCard = '';
+	for (let i = 0; i < listMembers.length; i++) {
+		markupCard += markupGenerator(listMembers[i]);
+		console.log(markupCard);
+	}
+	memberCard.innerHTML = markupCard
+	containerCardEl.appendChild(memberCard)
 }
 
 // Function to generate markup string
 function markupGenerator(members) {
-  // complete the info every iteraction
-  const markupString = `
+	// complete the info every iteraction
+	const markupString = `
     <div class="col mt-3">
       <div class="card mb-3" style="max-width: 340px;">
         <div class="row g-0">
@@ -98,5 +98,5 @@ function markupGenerator(members) {
       </div>
     </div>
   `;
-  return markupString;
+	return markupString;
 }
