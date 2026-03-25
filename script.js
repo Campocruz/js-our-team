@@ -81,17 +81,18 @@ function renderCard(listMembers) {
 function markupGenerator(members) {
   // complete the info every iteraction
   const markupString = `
-    <div class="col
-    <div class="card mb-3" style="max-width: 340px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="./assets/${members.img}" class="img-fluid rounded-start" alt="${members.img}">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <p class="card-title text-uppercase">${members.name}</p>
-            <p class="card-text">${members.role}</p>
-            <p class="card-text">${members.email}</p>
+    <div class="col mt-3">
+      <div class="card mb-3" style="max-width: 340px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="./assets/${members.img}" class="img-fluid rounded-start" alt="${members.img}">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <p class="card-title text-uppercase">${members.name}</p>
+              <p class="card-text">${members.role}</p>
+              <p class="card-text">${members.email}</p>
+            </div>
           </div>
         </div>
       </div>
