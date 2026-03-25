@@ -51,6 +51,7 @@ const inmputImg = document.getElementById('inputImg');
 const memberCard = document.createElement('div');
 memberCard.classList.add('row', 'row-cols-3', 'mt-3');
 
+// render card in page at first loading
 renderCard(teamMembers);
 
 // wait the event submit
@@ -64,9 +65,11 @@ formEl.addEventListener('submit', (e) => {
 		img: inmputImg.value
 	};
 	teamMembers.unshift(newMember);
+	// render card in page after submit with new data in array
 	renderCard(teamMembers);
 })
 
+// function to render the card in a element of DOM
 function renderCard(listMembers) {
 	let markupCard = '';
 	for (let i = 0; i < listMembers.length; i++) {
