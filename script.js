@@ -38,7 +38,7 @@ const teamMembers = [
 ];
 
 // selcet DOM node by id card-row
-const containerCardEl = document.getElementById('card-row');
+const containerCardEl = document.getElementById('container-card');
 // select DOM node from query form
 const formEl = document.querySelector('form');
 // select DOM node by id for all input
@@ -46,6 +46,9 @@ const inmputName = document.getElementById('inputName');
 const inmputRole = document.getElementById('inputRole');
 const inmputEmail = document.getElementById('inputEmail');
 const inmputImg = document.getElementById('inputImg');
+
+// Render member at first page load
+renderCard(teamMembers);
 
 // wait the event submit
 formEl.addEventListener('submit', (e) => {
@@ -61,9 +64,6 @@ formEl.addEventListener('submit', (e) => {
   // render new array
   renderCard(teamMembers);
 })
-
-// Render member at first page load
-renderCard(teamMembers);
 
 // Function to render the member card
 function renderCard(listMembers) {
