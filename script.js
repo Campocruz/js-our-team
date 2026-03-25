@@ -37,3 +37,28 @@ const teamMembers = [
   }
 ];
 
+// selcet DOM node 
+const containerCardEl = document.getElementById('card-row');
+
+for (let i = 0; i < teamMembers.length; i++) {
+  // create new DOM object 
+  const memberCard = document.createElement('div');
+  memberCard.classList.add('col');
+  memberCard.innerHTML = `
+    <div class="card mb-3" style="max-width: 340px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="./assets/${teamMembers[i].img}" class="img-fluid rounded-start" alt="${teamMembers[i].img}">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <p class="card-title text-uppercase">${teamMembers[i].name}</p>
+            <p class="card-text">${teamMembers[i].role}</p>
+            <p class="card-text">${teamMembers[i].email}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  containerCardEl.appendChild(memberCard);
+}
