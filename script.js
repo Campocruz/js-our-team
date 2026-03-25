@@ -37,13 +37,27 @@ const teamMembers = [
   }
 ];
 
-// selcet DOM node 
+// selcet DOM node by id card-row
 const containerCardEl = document.getElementById('card-row');
+// select DOM node from query form
+const formEl = document.querySelector('form');
+// select DOM node by id for all input
+const inmputRole = document.getElementById('inputRole');
+const inmputName = document.getElementById('inputName');
+const inmputEmail = document.getElementById('inputEmail');
+const inmputImg = document.getElementById('inputImg');
+
+formEl.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+})
 
 for (let i = 0; i < teamMembers.length; i++) {
   // create new DOM object 
   const memberCard = document.createElement('div');
+  // add class at the object
   memberCard.classList.add('col');
+  // complete the info every iteraction
   memberCard.innerHTML = `
     <div class="card mb-3" style="max-width: 340px;">
       <div class="row g-0">
@@ -60,5 +74,6 @@ for (let i = 0; i < teamMembers.length; i++) {
       </div>
     </div>
   `;
+  // insert new object in a card-row
   containerCardEl.appendChild(memberCard);
 }
