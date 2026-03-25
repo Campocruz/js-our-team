@@ -37,17 +37,20 @@ const teamMembers = [
   }
 ];
 
-// selcet DOM node by id card-row
+// selcet DOM node
 const containerCardEl = document.getElementById('container-card');
-// select DOM node from query form
 const formEl = document.querySelector('form');
+
 // select DOM node by id for all input
 const inmputName = document.getElementById('inputName');
 const inmputRole = document.getElementById('inputRole');
 const inmputEmail = document.getElementById('inputEmail');
 const inmputImg = document.getElementById('inputImg');
 
-// Render member at first page load
+// create new DOM object 
+const memberCard = document.createElement('div');
+memberCard.classList.add('row', 'row-cols-3', 'mt-3');
+
 renderCard(teamMembers);
 
 // wait the event submit
@@ -61,35 +64,38 @@ formEl.addEventListener('submit', (e) => {
     img: inmputImg.value
   };
   teamMembers.unshift(newMember);
-  // render new array
   renderCard(teamMembers);
 })
 
-// Function to render the member card
 function renderCard(listMembers) {
+  let markupCard = '';
   for (let i = 0; i < listMembers.length; i++) {
-    // create new DOM object 
-    const memberCard = document.createElement('div');
-    // add class at the object
-    memberCard.classList.add('col');
-    // complete the info every iteraction
-    memberCard.innerHTML = `
+    markupCard += markupGenerator(listMembers[i]);
+    console.log(markupCard);
+  }
+  memberCard.innerHTML = markupCard
+  containerCardEl.appendChild(memberCard)
+}
+
+// Function to generate markup string
+function markupGenerator(members) {
+  // complete the info every iteraction
+  const markupString = `
+    <div class="col
     <div class="card mb-3" style="max-width: 340px;">
       <div class="row g-0">
         <div class="col-md-4">
-          <img src="./assets/${listMembers[i].img}" class="img-fluid rounded-start" alt="${listMembers[i].img}">
+          <img src="./assets/${members.img}" class="img-fluid rounded-start" alt="${members.img}">
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <p class="card-title text-uppercase">${listMembers[i].name}</p>
-            <p class="card-text">${listMembers[i].role}</p>
-            <p class="card-text">${listMembers[i].email}</p>
+            <p class="card-title text-uppercase">${members.name}</p>
+            <p class="card-text">${members.role}</p>
+            <p class="card-text">${members.email}</p>
           </div>
         </div>
       </div>
     </div>
   `;
-    // insert new object in a card-row
-    containerCardEl.appendChild(memberCard);
-  }
+  return markupString;
 }
