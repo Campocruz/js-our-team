@@ -82,12 +82,13 @@ function renderCard(listMembers) {
 // Function to generate markup string
 function markupGenerator(members) {
 	// complete the info every iteraction
+	const subStringImg = members["img"].substring(4);
 	const markupString = `
     <div class="col mt-3">
       <div class="card mb-3" style="max-width: 340px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="./assets/${members.img}" class="img-fluid rounded-start" alt="${members.img}">
+            <img src="./assets/${members.img}" class="img-fluid rounded-start" alt="${subStringImg}">
           </div>
           <div class="col-md-8">
             <div class="card-body">
