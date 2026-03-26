@@ -74,7 +74,6 @@ function renderCard(listMembers) {
 	let markupCard = '';
 	for (let i = 0; i < listMembers.length; i++) {
 		markupCard += markupGenerator(listMembers[i]);
-		console.log(markupCard);
 	}
 	memberCard.innerHTML = markupCard
 	containerCardEl.appendChild(memberCard)
